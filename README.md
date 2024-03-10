@@ -1,8 +1,22 @@
-## Getting Started
+## ENSF 409 Final Project
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This Repo Contains The Final Project For ENSF 409
 
-## Folder Structure
+## Learning Evaluation
+
+    *Design, document and test a object-oriented Java application
+    *Connect and import data from a database
+    *Output data according to user input
+    *Incorporate GUI interaction for the user
+
+## Members
+
+    *Goatcus Gee
+    *Matteo Valente
+    *Placeholder
+    *Placeholder
+
+## Work Breakdown
 
 The workspace contains two folders by default, where:
 
