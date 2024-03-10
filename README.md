@@ -4,17 +4,17 @@ This Repo Contains The Final Project For ENSF 409
 
 ## Learning Evaluation
 
-*Design, document and test a object-oriented Java application
-*Connect and import data from a database
-*Output data according to user input
-*Incorporate GUI interaction for the user
+Design, document and test a object-oriented Java application
+Connect and import data from a database
+Output data according to user input
+Incorporate GUI interaction for the user
 
 ## Members
 
-    *Goatcus Gee
-    *Matteo Valente
-    *Placeholder
-    *Placeholder
+Goatcus Gee
+Matteo Valente
+Placeholder
+Placeholder
 
 ## Work Breakdown
 
