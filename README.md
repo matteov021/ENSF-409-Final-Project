@@ -9,9 +9,9 @@ This Repo Contains The Final Project For ENSF 409
 * Output data according to user input
 * Incorporate GUI interaction for the user
 
-## Members
+## Memebers
 
-* Marcus Gee (DELUSIONAL DRX FAN)
+* Marcus Maundy Gee (DELUSIONAL DRX FAN)
 * Matteo Valente
 * Placeholder
 * Placeholder
