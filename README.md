@@ -11,7 +11,7 @@ This Repo Contains The Final Project For ENSF 409
 
 ## Members
 
-* Goatcus Gee
+* Marcus Gee (DELUSIONAL DRX FAN)
 * Matteo Valente
 * Placeholder
 * Placeholder
