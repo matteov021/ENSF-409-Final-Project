@@ -1,11 +1,11 @@
 /**
  * 
+ * @author Matteo Valente
  * @author 
  * @author 
  * @author 
- * @author 
- * @version 1.0
- * @since 1.0
+ * @version 1.1.0
+ * @since 1.0.0
  */
 
 package Animals;
