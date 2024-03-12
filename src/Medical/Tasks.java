@@ -19,7 +19,7 @@ public class Tasks {
      * @param duration      - Duration Of The Task
      */
 
-    public Tasks(int taskID, String description, int duration, int maxWindow) {
+    public Tasks(int taskID, String description, int duration, int maxWindow) throws IllegalArgumentException {
         if (duration < 0) {
             throw new IllegalArgumentException();
         }
