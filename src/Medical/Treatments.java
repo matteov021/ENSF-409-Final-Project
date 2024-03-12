@@ -68,7 +68,7 @@ public class Treatments {
 
     /**
      * startHour Setter
-     * @param newStartHour -> an integer
+     * @param newStartHour
      */
 
     public void setStartHour(int startHour) throws IllegalArgumentException {
