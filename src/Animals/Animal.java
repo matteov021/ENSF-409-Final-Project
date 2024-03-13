@@ -79,5 +79,4 @@ public class Animal {
      public void setKitStaus() {
         this.kitStatus = true;
     }
-
 }
