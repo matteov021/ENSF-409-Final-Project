@@ -19,7 +19,7 @@ public class Treatments {
      * @param startHour
      */
 
-    public Treatments(int treatmentID, int animalID, int taskID, int startHour) {
+    public Treatments(int treatmentID, int animalID, int taskID, int startHour) throws IllegalArgumentException {
         if (startHour < 0 || startHour > 23) {
             throw new IllegalArgumentException();
         }
