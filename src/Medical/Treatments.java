@@ -21,7 +21,7 @@ public class Treatments {
 
     /**
      * Treatments Constructor
-     * @param treatmentID - Treadment ID
+     * @param treatmentID - Treatment ID
      * @param animalID    - Animal ID
      * @param taskID      - Task ID
      * @param startHour   - Start Hour
@@ -76,7 +76,7 @@ public class Treatments {
 
     /**
      * startHour Setter
-     * @param StartHour
+     * @param startHour
      */
 
     public void setStartHour(int startHour) throws IllegalArgumentException {

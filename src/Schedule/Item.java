@@ -45,7 +45,7 @@ public class Item {
         this.treatmentID = 0;
     }
 
-    // Constructor That Inlcudes Treatment ID
+    // Constructor That Includes Treatment ID
 
     public Item(int animalID, int taskID, int startHour, int maxWindow, int duration, int treatmentID) {
         if (duration < 0) {
@@ -122,7 +122,7 @@ public class Item {
 
     /**
      * startHour Setter
-     * @param StartHour
+     * @param startHour
      */
 
      public void setStartHour(int startHour) throws IllegalArgumentException {

@@ -20,7 +20,7 @@ public class Porcupine extends Animal{
     /**
      * Create & Return Item Object With Porcupine Specific Feeding Values
      * Override The Animal Method If Called
-     * Crepusular (7PM startHour)
+     * Crepuscular (7PM startHour)
      * @return Item
      */
 
