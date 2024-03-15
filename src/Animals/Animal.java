@@ -1,14 +1,14 @@
 /**
- * 
- * @author 
- * @author 
- * @author 
- * @author 
- * @version 1.0.0
+ * @author Matteo Valente
+ * @author Marcus Gee
+ * @author Findlay Dunn-Wolbaum
+ * @author Omar Ahmed
+ * @version 1.3.0
  * @since 1.0.0
  */
 
 package Animals;
+import Schedule.Item;
 
 public class Animal {
     private final int ID;
@@ -78,5 +78,15 @@ public class Animal {
 
      public void setKitStaus() {
         this.kitStatus = true;
+    }
+
+    /**
+     * Create & Return Item Object With Default Feeding Values 
+     * For All Animal Species, Default Has 5 Min Feeding, 3 Hour Window
+     * @return Item
+     */
+
+    public Item feeding() {
+        return new Item(this.ID, 0, 0, 3, 5);
     }
 }

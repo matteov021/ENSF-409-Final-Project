@@ -11,8 +11,8 @@ USE EWR;
 
 DROP TABLE IF EXISTS ANIMALS;
 CREATE TABLE ANIMALS (
-	AnimalID		int not null AUTO_INCREMENT,
-        AnimalNickname		varchar(25),
+	AnimalID			int not null AUTO_INCREMENT,
+    AnimalNickname		varchar(25),
 	AnimalSpecies		varchar(25),
 	primary key (AnimalID)
 );
@@ -36,10 +36,10 @@ INSERT INTO ANIMALS (AnimalID, AnimalNickname, AnimalSpecies) VALUES
 
 DROP TABLE IF EXISTS TASKS;
 CREATE TABLE TASKS (
-	TaskID			int not null AUTO_INCREMENT,
-	Description		varchar(50),
-        Duration                int,
-        MaxWindow               int,
+	TaskID					int not null AUTO_INCREMENT,
+	Description				varchar(50),
+    Duration                int,
+    MaxWindow               int,
 	primary key (TaskID)
 );
 
@@ -57,7 +57,7 @@ INSERT INTO TASKS (TaskID, Description, Duration, MaxWindow) VALUES
 
 DROP TABLE IF EXISTS TREATMENTS;
 CREATE TABLE TREATMENTS (
-      	TreatmentID	int not null AUTO_INCREMENT,
+    TreatmentID	int not null AUTO_INCREMENT,
 	AnimalID	int not null,
 	TaskID		int not null,
 	StartHour	int not null,
