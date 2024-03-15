@@ -14,7 +14,7 @@ Contains The Final Project For ENSF 409
 * Marcus Maundy Gee (DELUSIONAL DRX FAN)
 * Matteo Valente
 * Findlay Dunn-Wolbaum
-* Placeholder
+* Omar Ahmed
 
 ## File Structure
 

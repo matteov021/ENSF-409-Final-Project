@@ -38,7 +38,7 @@ public enum Species {
             return new Tasks(1, "Feeding", 5, 3);
         }
     },
-    racoon {
+    raccoon {
         public Tasks feedingTask() {
             return new Tasks(1, "Feeding", 5, 3);
         }
