@@ -4,7 +4,7 @@
  * @author Findlay Dunn-Wolbaum
  * @author Omar Ahmed
  * @version 1.7.0
- * @since 1.0.0
+ * @since 1.6.0
  */
 
 package Schedule;
