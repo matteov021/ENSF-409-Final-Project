@@ -3,7 +3,7 @@
  * @author Marcus Gee
  * @author Findlay Dunn-Wolbaum
  * @author Omar Ahmed
- * @version 1.6.0
+ * @version 1.7.0
  * @since 1.5.0
  */
 
@@ -30,10 +30,10 @@ public class Item {
         if (duration < 0) {
             throw new IllegalArgumentException();
         }
-        if (maxWindow <= 0 || maxWindow > 24) {
+        if (maxWindow < 0 || maxWindow > 24) {
             throw new IllegalArgumentException();
         }
-        if (startHour < 0 || maxWindow > 23) {
+        if (startHour < 0 || startHour > 23) {
             throw new IllegalArgumentException();
         }
 
@@ -51,10 +51,10 @@ public class Item {
         if (duration < 0) {
             throw new IllegalArgumentException();
         }
-        if (maxWindow <= 0 || maxWindow > 24) {
+        if (maxWindow < 0 || maxWindow > 24) {
             throw new IllegalArgumentException();
         }
-        if (startHour < 0 || maxWindow > 23) {
+        if (startHour < 0 || startHour > 23) {
             throw new IllegalArgumentException();
         }
 
