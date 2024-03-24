@@ -1,14 +1,14 @@
 /**
- * 
- * @author 
- * @author 
- * @author 
- * @author 
- * @version 1.0.1
+ * @author Matteo Valente
+ * @author Marcus Gee
+ * @author Findlay Dunn-Wolbaum
+ * @author Omar Ahmed
+ * @version 1.3.0
  * @since 1.0.0
  */
 
 package Animals;
+import Schedule.Item;
 
 public class Animal {
     private final int ID;
@@ -26,9 +26,9 @@ public class Animal {
     public Animal(int ID, String nickName, String animalSpecies) throws IllegalArgumentException {
         if (ID < 0)
             throw new IllegalArgumentException();
-        else if (nickName == null || nickName == "")
+        else if (nickName == null || nickName.isEmpty())
             throw new IllegalArgumentException();
-        else if (animalSpecies == null || animalSpecies == "")
+        else if (animalSpecies == null || animalSpecies.isEmpty())
             throw new IllegalArgumentException();
 
         this.ID = ID;
@@ -68,7 +68,7 @@ public class Animal {
      * @return kitStatus
      */
 
-     public boolean getKitStaus() {
+     public boolean getKitStatus() {
         return kitStatus;
     }
 
@@ -76,8 +76,17 @@ public class Animal {
      * kitStatus Setter
      */
 
-     public void setKitStaus() {
+     public void setKitStatus() {
         this.kitStatus = true;
     }
 
+    /**
+     * Create & Return Item Object With Default Feeding Values 
+     * For All Animal Species, Default Has 5 Min Feeding, 3-Hour Window
+     * @return Item
+     */
+
+    public Item feeding() {
+        return new Item(this.ID, 0, 0, 3, 5);
+    }
 }

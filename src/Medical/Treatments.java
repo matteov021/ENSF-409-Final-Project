@@ -1,3 +1,12 @@
+/**
+ * @author Matteo Valente
+ * @author Marcus Gee
+ * @author Findlay Dunn-Wolbaum
+ * @author Omar Ahmed
+ * @version 1.5.0
+ * @since 1.2.0
+ */
+
 package Medical;
 
 public class Treatments {
@@ -11,15 +20,14 @@ public class Treatments {
     private int startHour;
 
     /**
-     * Treatment Constructor
-     * 
-     * @param treatmentID
-     * @param animalID
-     * @param taskID
-     * @param startHour
+     * Treatments Constructor
+     * @param treatmentID - Treatment ID
+     * @param animalID    - Animal ID
+     * @param taskID      - Task ID
+     * @param startHour   - Start Hour
      */
 
-    public Treatments(int treatmentID, int animalID, int taskID, int startHour) {
+    public Treatments(int treatmentID, int animalID, int taskID, int startHour) throws IllegalArgumentException {
         if (startHour < 0 || startHour > 23) {
             throw new IllegalArgumentException();
         }
@@ -68,7 +76,7 @@ public class Treatments {
 
     /**
      * startHour Setter
-     * @param StartHour
+     * @param startHour
      */
 
     public void setStartHour(int startHour) throws IllegalArgumentException {

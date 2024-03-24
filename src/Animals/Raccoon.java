@@ -11,23 +11,23 @@ package Animals;
 
 import Schedule.Item;
 
-public class Porcupine extends Animal{
+public class Raccoon extends Animal {
     
-    public Porcupine(int ID, String nickName, String animalSpecies){
+    public Raccoon(int ID, String nickName, String animalSpecies) {
         super(ID, nickName, animalSpecies);
     }
 
     /**
-     * Create & Return Item Object With Porcupine Specific Feeding Values
+     * Create & Return Item Object With Raccoon Specific Feeding Values
      * Override The Animal Method If Called
-     * Crepuscular (7PM startHour)
+     * Nocturnal (12AM startHour)
      * @return Item
      */
 
     @Override
     public Item feeding() {
-        return new Item(getID(), 0, 19, 3, 5);
-    }
+        return new Item(getID(), 0, 0, 3, 5);
+    }    
 
 }
  
