@@ -13,7 +13,7 @@ This Repo Contains The Final Project For ENSF 409
 
 * Marcus Maundy Gee (DELUSIONAL DRX FAN)
 * Matteo Valente
-* Placeholder
+* Findlay Dunn-Wolbaum
 * Placeholder
 
 ## File Structure Breakdown
