@@ -11,7 +11,15 @@ package Animals;
 import Schedule.Item;
 
 public class Animal {
-    private final int ID;
+    // should all these be private final or protected final?
+    // should we have the following?:
+    // Boolean orphaned
+    // String AnimalFeedingType
+    // FeedWindow
+    // FeedTime
+    // FeedPrepTime
+    // CleanTime
+    private final int ID; //Unique ID for each animal
     private String nickName;
     private String animalSpecies;
     private boolean kitStatus = false;
