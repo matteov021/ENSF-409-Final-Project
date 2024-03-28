@@ -5,13 +5,12 @@ Application : Wildlife Rescue
 Provides : Tasks based on the animals & GUI to allow user to create a schedule txt file
 
 ## Table of Contents
-
+- [Members](#Members)
 - [Installation](#installation)
 - [Usage](#Usage)
 - [Documentation](#Documentation)
-- [Contributing](#Contributing)
 
-## Memebers
+## Members
 
 * Marcus Maundy Gee (DELUSIONAL DRX FAN)
 * Matteo Valente
@@ -36,15 +35,28 @@ Provides : Tasks based on the animals & GUI to allow user to create a schedule t
 ### Running Program (Using Windows CMD)
 
 - 1. Clone & cd into `src`
-- 2. Run ```javac -cp .;..\lib\postgresql-42.7.2.jar edu/ucalgary/oop/MainGUI.java```
-- 3. Run ```java -cp .;..\lib\postgresql-42.7.2.jar edu.ucalgary.oop.MainGUI```
+- 2. Add the dependencies listed in [dependencies](#Dependencies) to the `lib` folder
+- 3. Run 
+```
+javac -cp .;..\lib\postgresql-42.7.2.jar edu/ucalgary/oop/MainGUI.java'
+```
+- 4. Run 
+```
+java -cp .;..\lib\postgresql-42.7.2.jar edu.ucalgary.oop.MainGUI
+```
 
 ### Runnning Tests (Using Windows CMD)
 
 - 1. Clone & cd into `src`
-- 2. Add the dependencies listed in [dependencies](#Dependencies) to the lib folder
-- 3. Run the compliation: ```javac -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar edu/ucalgary/oop/ExampleTest.java```
-- 4. Run the test file: ```java -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar org.junit.runner.JUnitCore edu.ucalgary.oop.ExampleTest```
+- 2. Add the dependencies listed in [dependencies](#Dependencies) to the `lib` folder
+- 3. Run the compliation: 
+```
+javac -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar edu/ucalgary/oop/ExampleTest.java
+```
+- 4. Run the test file: 
+```
+java -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar org.junit.runner.JUnitCore edu.ucalgary.oop.ExampleTest
+```
 
 Replace 'ExampleTest' with the test file you would like to run.
 
@@ -62,4 +74,4 @@ Replace 'ExampleTest' with the test file you would like to run.
    - TODO
    
 #### MainGUI:
-    - TODO
+   - TODO
