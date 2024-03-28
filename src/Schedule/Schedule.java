@@ -91,7 +91,7 @@ public class Schedule extends JFrame {
             }
         }
         createTextSchedule();
-        // createGUIschedule();
+        createGUIschedule();
     }
 
     /**
@@ -378,5 +378,37 @@ public class Schedule extends JFrame {
         } catch (IOException e) {
             System.err.println("Error writing to Schedule.txt: " + e.getMessage());
         }
+    }
+
+    /**
+     * Displays the daily schedule in a GUI dialog. It lists tasks for each hour or marks them as empty.
+     * The schedule is shown in a non-editable, scrollable text area within a JOptionPane.
+     */
+
+    public void createGUIschedule() {
+        StringBuilder scheduleBuilder = new StringBuilder();
+    
+        for (Map.Entry<Integer, ArrayList<Item>> entry : schedule.entrySet()) {
+            int hour = entry.getKey();
+            scheduleBuilder.append("Hour: ").append(hour).append("\n");
+            
+            ArrayList<Item> items = entry.getValue();
+            if (items != null && !items.isEmpty()) {
+                for (Item item : items) {
+                    scheduleBuilder.append(formatItem(item)).append("\n");
+                }
+            } else {
+                scheduleBuilder.append("Empty\n");
+            }
+            scheduleBuilder.append("\n");
+        }
+        
+        JTextArea textArea = new JTextArea(scheduleBuilder.toString());
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        scrollPane.setPreferredSize(new Dimension(500, 500));
+        JOptionPane.showMessageDialog(rootPane, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);
     }
 }
