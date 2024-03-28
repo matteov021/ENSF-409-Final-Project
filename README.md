@@ -5,13 +5,12 @@ Application : Wildlife Rescue
 Provides : Tasks based on the animals & GUI to allow user to create a schedule txt file
 
 ## Table of Contents
-
+- [Members](#Members)
 - [Installation](#installation)
 - [Usage](#Usage)
 - [Documentation](#Documentation)
-- [Contributing](#Contributing)
 
-## Memebers
+## Members
 
 * Marcus Maundy Gee (DELUSIONAL DRX FAN)
 * Matteo Valente
