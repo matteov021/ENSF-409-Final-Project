@@ -1,4 +1,13 @@
+package Animals;
+
+import Schedule.Item;
+
 /**
+ * Represents a Raccoon, a specific type of Animal known for its nocturnal feeding habits.
+ * This class extends the Animal class to provide Raccoon-specific behavior, particularly
+ * in terms of feeding. The feeding schedule is tailored to the Raccoon's nocturnal nature,
+ * beginning at midnight.
+ * 
  * @author Matteo Valente
  * @author Marcus Gee
  * @author Findlay Dunn-Wolbaum
@@ -6,28 +15,30 @@
  * @version 1.2.0
  * @since 1.0.0
  */
-
-package Animals;
-
-import Schedule.Item;
-
 public class Raccoon extends Animal {
     
+    /**
+     * Constructs a Raccoon instance with specified ID, nickname, and species.
+     * Initializes the Raccoon with the given attributes by calling the superclass (Animal) constructor.
+     * 
+     * @param ID Unique identifier for the Raccoon.
+     * @param nickName Nickname of the Raccoon.
+     * @param animalSpecies Species of the animal, expected to be "Raccoon".
+     */
     public Raccoon(int ID, String nickName, String animalSpecies) {
         super(ID, nickName, animalSpecies);
     }
 
     /**
-     * Create & Return Item Object With Raccoon Specific Feeding Values
-     * Override The Animal Method If Called
-     * Nocturnal (12AM startHour)
-     * @return Item
+     * Creates and returns an Item object with Raccoon-specific feeding values, reflecting its nocturnal activity.
+     * This method overrides the Animal class's feeding method to set a feeding schedule that starts at midnight (0 hour).
+     * 
+     * @return An Item object representing the Raccoon's feeding schedule, with a start hour of 0 (midnight), 
+     *         a 3-hour feeding window, and a duration of 5 minutes.
      */
-
     @Override
     public Item feeding() {
         return new Item(getID(), 0, 0, 3, 5);
     }    
 
 }
- 

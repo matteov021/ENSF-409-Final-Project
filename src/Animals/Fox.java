@@ -1,4 +1,13 @@
+package Animals;
+
+import Schedule.Item;
+
 /**
+ * Represents a Fox, which is a specific type of Animal.
+ * This class overrides the feeding behavior to account for the fox's nocturnal feeding habits,
+ * setting a specific feeding schedule that starts at midnight.
+ * Inherits common properties from the Animal class and provides implementation for fox-specific behavior.
+ * 
  * @author Matteo Valente
  * @author Marcus Gee
  * @author Findlay Dunn-Wolbaum
@@ -6,28 +15,30 @@
  * @version 1.2.0
  * @since 1.0.0
  */
-
-package Animals;
-
-import Schedule.Item;
-
-public class Fox extends Animal{
+public class Fox extends Animal {
     
-    public Fox(int ID, String nickName, String animalSpecies){
+    /**
+     * Constructs a Fox instance with an ID, nickname, and species.
+     * Initializes the Fox with the specified attributes by calling the superclass (Animal) constructor.
+     * 
+     * @param ID The unique identifier for the Fox.
+     * @param nickName The nickname of the Fox.
+     * @param animalSpecies The species of the animal, expected to be "Fox".
+     */
+    public Fox(int ID, String nickName, String animalSpecies) {
         super(ID, nickName, animalSpecies);
     }
 
     /**
-     * Create & Return Item Object With Fox Specific Feeding Values
-     * Override The Animal Method If Called
-     * Nocturnal (12AM startHour)
-     * @return Item
+     * Creates and returns an Item object with Fox-specific feeding values, reflecting its nocturnal nature.
+     * This method overrides the Animal class's feeding method to provide a feeding schedule that starts at midnight.
+     * 
+     * @return An Item object representing the Fox's feeding schedule, starting at 12 AM, within a 3-hour window, for a duration of 5 minutes.
      */
-
     @Override
     public Item feeding() {
         return new Item(getID(), 0, 0, 3, 5);
     }
-
 }
+
  
