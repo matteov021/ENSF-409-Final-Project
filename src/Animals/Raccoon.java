@@ -3,9 +3,9 @@ package Animals;
 import Schedule.Item;
 
 /**
- * Represents a Raccoon, a specific type of Animal known for its nocturnal feeding habits.
- * This class extends the Animal class to provide Raccoon-specific behavior, particularly
- * in terms of feeding. The feeding schedule is tailored to the Raccoon's nocturnal nature,
+ * Represents a Raccoon, extending the {@link Animal} class with specific behaviors and properties
+ * unique to raccoons.
+ * The feeding schedule is tailored to the Raccoon's nocturnal nature,
  * beginning at midnight.
  * 
  * @author Matteo Valente

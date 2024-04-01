@@ -46,12 +46,12 @@ public class Schedule extends JFrame {
      */
 
      public Schedule(String username, String password) throws IllegalArgumentException {
-        importData.dbConnection(username, password);
+        importData.establishDBConnection(username, password);
         
         try {
-            animalHashMap = importData.getAnimalsTable();
-            tasksHashMap = importData.getTasksTable();
-            treatmentsArrayList = importData.getTreatmentsTable();
+            animalHashMap = importData.importAnimalsTable();
+            tasksHashMap = importData.importTasksTable();
+            treatmentsArrayList = importData.importTreatmentsTable();
         } catch (Exception e) {
             System.out.println(e);
         }

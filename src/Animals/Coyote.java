@@ -3,7 +3,8 @@ package Animals;
 import Schedule.Item;
 
 /**
- * Represents a Coyote, extending the generic Animal class.
+ * Represents a Coyote, extending the {@link Animal} class with specific behaviors and properties
+ * unique to coyotes.
  * This class overrides the feeding method to provide feeding schedule specifics
  * suited for a Coyote, taking into account its crepuscular nature.
  * 

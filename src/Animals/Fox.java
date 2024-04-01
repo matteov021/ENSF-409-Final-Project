@@ -3,10 +3,10 @@ package Animals;
 import Schedule.Item;
 
 /**
- * Represents a Fox, which is a specific type of Animal.
+ * Represents a Fox, extending the {@link Animal} class with specific behaviors and properties
+ * unique to foxes.
  * This class overrides the feeding behavior to account for the fox's nocturnal feeding habits,
  * setting a specific feeding schedule that starts at midnight.
- * Inherits common properties from the Animal class and provides implementation for fox-specific behavior.
  * 
  * @author Matteo Valente
  * @author Marcus Gee
