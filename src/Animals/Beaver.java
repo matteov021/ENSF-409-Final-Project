@@ -4,13 +4,10 @@ import Schedule.Item;
 
 /**
  * Represents a Beaver, extending the {@link Animal} class with specific behaviors and properties
- * unique to beavers. This class demonstrates how to override the feeding behavior to accommodate
- * the dietary habits and schedule of a beaver, specifically their diurnal activity pattern.
- * 
- * The feeding schedule for a beaver starts at 8 AM, reflecting their active period during the day.
- * This class can be expanded to include additional behaviors and properties specific to beavers,
- * such as building dams or their preference for certain types of food.
- * 
+ * unique to beavers.
+ * This class overrides the feeding method to provide feeding schedule specifics
+ * suited for a Beaver, taking into account its diurnal nature.
+
  * @author Matteo Valente
  * @author Marcus Gee
  * @author Findlay Dunn-Wolbaum

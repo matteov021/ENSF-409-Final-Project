@@ -3,10 +3,10 @@ package Animals;
 import Schedule.Item;
 
 /**
- * Represents a Porcupine, a specific type of Animal.
+ * Represents a Porcupine, extending the {@link Animal} class with specific behaviors and properties
+ * unique to porcupines.
  * This class provides functionality to set up a porcupine-specific feeding schedule,
  * taking into account its crepuscular activity patterns.
- * Inherits from the Animal class and overrides the feeding behavior to suit the Porcupine's needs.
  * 
  * @author Matteo Valente
  * @author Marcus Gee
