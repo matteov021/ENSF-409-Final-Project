@@ -36,7 +36,7 @@ public class ImportData {
      * @param password The database password
      * @return A boolean value indicating whether the connection was successful.
      */
-    public boolean establishDbConnection(String username, String password) {
+    public boolean establishDBConnection(String username, String password) {
         try {
             this.dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost/ewr", username, password);
             return true;
