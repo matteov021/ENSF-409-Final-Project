@@ -2,7 +2,6 @@ package Tests.Schedule;
 
 import Schedule.ImportData;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,6 +20,8 @@ import static org.junit.Assert.*;
  * @version 1.2.0
  * @since 1.0.0
  */
+
+@SuppressWarnings("unused")
 public class ImportDataTest {
 
     private final String username = "testUser";  // Replace with your test database username
