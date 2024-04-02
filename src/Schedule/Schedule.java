@@ -8,7 +8,6 @@
  */
 
 package Schedule;
-import java.sql.*;
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
@@ -109,30 +108,6 @@ public class Schedule {
         }
         return -1; // No hour available for volunteer
     }
-
-    // /**
-    //  * Requests user input for rescheduling the task to a different time within the available volunteering hours.
-    //  * 
-    //  * @param volunteerHour The hour during which a volunteer is needed for the task.
-    //  * @return The rescheduled hour chosen by the user, or -1 if input is invalid or the chosen time is unavailable.
-    //  */
-
-    // private int requestRescheduleTime(int volunteerHour) {
-        
-    //     // Logic to prompt user for reschedule time
-    //     // Show Available Times (timeAvailability Hashmap (Keys, IDK How GUI))
-    //     // This part would involve interaction with GUI elements
-    //     // For now, you can return a default value or handle it as needed
-        
-    //     try {
-    //         int userinput = Integer.parseInt(userChoice);
-    //         if (timeAvailability.containsKey(userinput) && timeAvailability.get(userinput) == 60) {
-    //             return userinput;
-    //         }
-    //     } catch (NumberFormatException ignored) {
-    //     }
-    //     return -1;
-    // }
 
     /**
      * Handles the scenario where a backup volunteer is required for a specific hour.
@@ -341,12 +316,10 @@ public class Schedule {
      * @return A formatted string representing the item's details.
      */
 
-    public String formatItem(Item item) {
+    public String formatItem(Item item, int nickNameWidth, int descriptionWidth) {
         String nickName = animalHashMap.get(item.getAnimalID()).getNickName();
         String description = (item.getTaskID() == 0) ? "Feeding" : tasksHashMap.get(item.getTaskID()).getDescription();
         int duration = item.getDuration();
-        final int nickNameWidth = 30;
-        final int descriptionWidth = 25;
         return String.format("%-" + nickNameWidth + "s%-"+ descriptionWidth + "s%5d mins", nickName, description, duration);
     }
 
@@ -367,7 +340,7 @@ public class Schedule {
                 ArrayList<Item> items = entry.getValue();
                 if (items != null && !items.isEmpty()) {
                     for (Item item : items) {
-                        bufferedWriter.write(formatItem(item));
+                        bufferedWriter.write(formatItem(item, 30, 25));
                         bufferedWriter.newLine();
                     }
                 } else {
@@ -396,7 +369,7 @@ public class Schedule {
             ArrayList<Item> items = entry.getValue();
             if (items != null && !items.isEmpty()) {
                 for (Item item : items) {
-                    scheduleBuilder.append(formatItem(item)).append("\n");
+                    scheduleBuilder.append(formatItem(item, 30, 25)).append("\n");
                 }
             } else {
                 scheduleBuilder.append("Empty\n");
@@ -404,14 +377,13 @@ public class Schedule {
             scheduleBuilder.append("\n");
         }
        
-
         JTextArea textArea = new JTextArea(scheduleBuilder.toString());
         JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         scrollPane.setPreferredSize(new Dimension(500, 500));
-        JOptionPane.showMessageDialog(null, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);
-        
+        JOptionPane.showMessageDialog(null, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);   
     }
 }
