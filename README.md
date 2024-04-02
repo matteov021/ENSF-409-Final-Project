@@ -73,5 +73,5 @@ Replace 'ExampleTest' with the test file you would like to run.
 #### ImportData, Item, Schedule:
    - TODO
    
-#### MainGUI:
+#### Main, GUI:
    - TODO
