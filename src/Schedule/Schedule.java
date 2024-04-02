@@ -3,7 +3,7 @@
  * @author Marcus Gee
  * @author Findlay Dunn-Wolbaum
  * @author Omar Ahmed
- * @version 2.9.0
+ * @version 2.10.0
  * @since 1.7.0
  */
 
@@ -12,12 +12,13 @@ import java.sql.*;
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
+
 import java.awt.*;
 import Medical.*;
 import Animals.*;
-import Schedule.*;
 
-public class Schedule extends JFrame {
+
+public class Schedule {
     
     // ImportData Object For Storing The Data Compiled From The Database
     // Copies Of The HashMaps / ArrayList In The ImportData Class
@@ -53,7 +54,7 @@ public class Schedule extends JFrame {
             tasksHashMap = importData.importTasksTable();
             treatmentsArrayList = importData.importTreatmentsTable();
         } catch (Exception e) {
-            System.out.println(e);
+            throw new IllegalArgumentException();
         }
     
         tasksHashMap.put(-2, new Tasks(-2, "Cage Cleaning", 5, 24));
@@ -64,9 +65,9 @@ public class Schedule extends JFrame {
             maxTimeAvailability.put(i, 60);
             schedule.put(i, null);
         } 
-        createSchedule();
+       
     }
-
+ 
     /**
      * Schedules all tasks by prioritizing their flexibility and handles unscheduled tasks by either adding a volunteer
      * or prompting for rescheduling. Finally, generates the text schedule.
@@ -144,7 +145,7 @@ public class Schedule extends JFrame {
      */
 
     private void handleVolunteerRequired(int volunteerHour, Item item, String[] options) {
-        int selectedValue = JOptionPane.showOptionDialog(rootPane,
+        int selectedValue = JOptionPane.showOptionDialog(null,
                 "A backup volunteer is required for " + volunteerHour, "Warning",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, options, options[0]);
@@ -178,7 +179,7 @@ public class Schedule extends JFrame {
 
     private void promptReschedule(Item item) {
         String timesAvailable = getTimeAvailabilityForRescheduling();
-        String userInput = JOptionPane.showInputDialog(rootPane,
+        String userInput = JOptionPane.showInputDialog(null,
                 "Please reschedule the task to a different time: " + timesAvailable);
         try {
             int newStartHour = Integer.parseInt(userInput);
@@ -187,11 +188,11 @@ public class Schedule extends JFrame {
                 addItem(item);
                 importData.updateTreatmentStartHour(item.getTreatmentID(), newStartHour);
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Invalid input, try again.");
+                JOptionPane.showMessageDialog(null, "Invalid input, try again.");
                 promptReschedule(item); // Recursive call to prompt again
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "Invalid input, try again.");
+            JOptionPane.showMessageDialog(null, "Invalid input, try again.");
             promptReschedule(item); // Recursive call to prompt again
         }
     }
@@ -402,13 +403,15 @@ public class Schedule extends JFrame {
             }
             scheduleBuilder.append("\n");
         }
-        
+       
+
         JTextArea textArea = new JTextArea(scheduleBuilder.toString());
         JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         scrollPane.setPreferredSize(new Dimension(500, 500));
-        JOptionPane.showMessageDialog(rootPane, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);
+        JOptionPane.showMessageDialog(null, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);
+        
     }
 }

@@ -1,25 +1,36 @@
 import Schedule.*;
-
+import GUI.*;
 public class Main {
 
     public static void main(String[] args) {
-        // Dummy credentials for demonstration. Replace with actual credentials.
-        String username = "aboba";
-        String password = "ucalgary";
+        boolean flag = true;//use the flag as a indicator on when to end the program
+        GUI gui = new GUI();
+        Schedule schedule = null;
+        while(flag){
+            try {
+                schedule = new Schedule(gui.getUsername(),gui.getPassword());
+                flag = false;}
+            catch(Exception e){
+                //if an exception occurs then we use the GUI error display message then reprompt the user for input
+                //if the user presses the cancel button then the username or password is null and we exit the program
+                gui.errorMessage();
+                gui = new GUI();
+                flag = true;
+                if(gui.getPassword() == null || gui.getUsername() == null){
+                    flag = false;
+                }
+            } finally{
+                if(schedule != null){
+                    schedule.createSchedule();
+                }
+            }
 
-        try {
-            // Instantiate the Schedule class, which should automatically create the schedule and write it to a file
-            Schedule schedule = new Schedule(username, password);
             
-            // At this point, the schedule should be created and written to Schedule.txt
-            System.out.println("Schedule creation completed successfully and written to Schedule.txt.");
-        } catch (IllegalArgumentException e) {
-            System.err.println("There was an error during schedule creation: " + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) {
-            System.err.println("An unexpected error occurred: " + e.getMessage());
-            e.printStackTrace();
+            
         }
+
+   
     }
+    
 }
 
