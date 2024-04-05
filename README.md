@@ -1,8 +1,8 @@
 # ENSF 409 Final Project
 
-Contains The Final Project For ENSF 409
-Application : Wildlife Rescue
-Provides : Tasks based on the animals & GUI to allow user to create a schedule txt file
+Contains The Final Project For ENSF 409  
+Application : Wildlife Rescue  
+Provides : Tasks based on the animals & GUI to allow user to create a schedule txt file  
 
 ## Table of Contents
 - [Members](#Members)
