@@ -78,7 +78,7 @@ public class Schedule {
         items.addAll(addMedical());
         items.addAll(addCage());
         items.addAll(addFeeding());
-        items.sort(Comparator.comparingInt(Item::getMaxWindow));
+        // items.sort(Comparator.comparingInt(Item::getMaxWindow));
         
         for (Item item : items) {
             if (!addItem(item)) {
