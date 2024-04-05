@@ -38,11 +38,11 @@ Provides : Tasks based on the animals & GUI to allow user to create a schedule t
 - 2. Add the dependencies listed in [dependencies](#Dependencies) to the `lib` folder
 - 3. Run the compilation
 ```
-javac -cp .;..\lib\postgresql-42.7.2.jar edu/ucalgary/oop/MainGUI.java'
+javac -cp .;..\lib\postgresql-42.7.2.jar edu/ucalgary/oop/Main.java'
 ```
 - 4. Run the main file
 ```
-java -cp .;..\lib\postgresql-42.7.2.jar edu.ucalgary.oop.MainGUI
+java -cp .;..\lib\postgresql-42.7.2.jar edu.ucalgary.oop.Main
 ```
 
 ### Runnning Tests (Using Windows CMD)
@@ -73,5 +73,5 @@ Replace 'ExampleTest' with the test file you would like to run.
 #### ImportData, Item, Schedule:
    - TODO
    
-#### MainGUI:
+#### Main, GUI:
    - TODO
