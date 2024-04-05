@@ -126,6 +126,7 @@ public class Schedule {
                 null, options, options[0]);
         if (selectedValue == 1) {
             adjustTimeAvailability(volunteerHour);
+            item.setNeedsVolunteer(true);
             addItem(item);
         } else {
             promptReschedule(item);
@@ -318,6 +319,9 @@ public class Schedule {
 
     public String formatItem(Item item, int nickNameWidth, int descriptionWidth) {
         String nickName = animalHashMap.get(item.getAnimalID()).getNickName();
+        if (item.getNeedsVolunteer()) {
+            nickName += " (+ Volunteer)";
+        }
         String description = (item.getTaskID() == 0) ? "Feeding" : tasksHashMap.get(item.getTaskID()).getDescription();
         int duration = item.getDuration();
         return String.format("%-" + nickNameWidth + "s%-"+ descriptionWidth + "s%5d mins", nickName, description, duration);
