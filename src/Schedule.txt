@@ -1,26 +1,26 @@
 Hour: 0
 Annie, Oliver and Mowgli      Kit feeding                 30 mins
-Slinky                        Feeding                      5 mins
 Loner                         Cage Cleaning                5 mins
 Biter                         Cage Cleaning                5 mins
 Bitter                        Cage Cleaning                5 mins
 Pencil                        Cage Cleaning                5 mins
-
-Hour: 1
 Eraser                        Cage Cleaning                5 mins
 Annie, Oliver and Mowgli      Cage Cleaning                5 mins
+
+Hour: 1
 Slinky                        Cage Cleaning                5 mins
 Spike                         Porcupine Cage Cleaning     10 mins
 Javelin                       Porcupine Cage Cleaning     10 mins
 Gatekeeper                    Porcupine Cage Cleaning     10 mins
 Sunshine                      Porcupine Cage Cleaning     10 mins
+Shadow                        Porcupine Cage Cleaning     10 mins
 Boots                         Cage Cleaning                5 mins
 
 Hour: 2
 Annie, Oliver and Mowgli      Kit feeding                 30 mins
-Shadow                        Porcupine Cage Cleaning     10 mins
 Spin                          Cage Cleaning                5 mins
 Spot                          Cage Cleaning                5 mins
+Slinky                        Feeding                      5 mins
 
 Hour: 3
 Empty
@@ -32,9 +32,9 @@ Hour: 5
 Empty
 
 Hour: 6
+Annie, Oliver and Mowgli      Kit feeding                 30 mins
 Spike                         Flush neck wound            25 mins
 Spike                         Administer antibiotics       5 mins
-Annie, Oliver and Mowgli      Kit feeding                 30 mins
 
 Hour: 7
 Empty
@@ -55,17 +55,17 @@ Hour: 12
 Annie, Oliver and Mowgli      Kit feeding                 30 mins
 
 Hour: 13
-Biter                         Eyedrops                    25 mins
 Biter                         Inspect broken leg           5 mins
-Spin                          Inspect broken leg           5 mins
-Spin                          Mange treatment             15 mins
+Biter                         Eyedrops                    25 mins
 Bitter                        Give vitamin injection       5 mins
 Pencil                        Give vitamin injection       5 mins
+Eraser                        Give vitamin injection       5 mins
+Spin                          Inspect broken leg           5 mins
 
 Hour: 14
 Annie, Oliver and Mowgli      Kit feeding                 30 mins
+Spin                          Mange treatment             15 mins
 Spot                          Mange treatment             15 mins
-Eraser                        Give vitamin injection       5 mins
 
 Hour: 15
 Shadow                        Apply burn ointment back    10 mins
@@ -77,8 +77,8 @@ Hour: 17
 Empty
 
 Hour: 18
-Spike                         Administer antibiotics       5 mins
 Annie, Oliver and Mowgli      Kit feeding                 30 mins
+Spike                         Administer antibiotics       5 mins
 
 Hour: 19
 Slinky                        Rebandage leg wound         20 mins
@@ -102,12 +102,12 @@ Hour: 21
 Boots                         Feeding                      5 mins
 
 Hour: 22
+Annie, Oliver and Mowgli      Kit feeding                 30 mins
 Loner                         Eyedrops                    25 mins
-Javelin                       Eyedrops                    25 mins
+Javelin (+ Volunteer)         Eyedrops                    25 mins
 Boots                         Give fluid injection        10 mins
 
 Hour: 23
-Annie, Oliver and Mowgli      Kit feeding                 30 mins
-Sunshine                      Mange treatment             15 mins
 Gatekeeper                    Give vitamin injection       5 mins
+Sunshine                      Mange treatment             15 mins
 
