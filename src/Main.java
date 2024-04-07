@@ -1,5 +1,15 @@
 import Schedule.*;
 import GUI.*;
+
+/**
+ * @author Matteo Valente
+ * @author Marcus Gee
+ * @author Findlay Dunn-Wolbaum
+ * @author Omar Ahmed
+ * @version 2.9.0
+ * @since 2.8.0
+ */
+
 public class Main {
 
     public static void main(String[] args) {
