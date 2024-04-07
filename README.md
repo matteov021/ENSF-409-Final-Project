@@ -38,7 +38,7 @@ Provides : Tasks based on the animals & GUI to allow user to create a schedule t
 - 2. Add the dependencies listed in [dependencies](#Dependencies) to the `lib` folder
 - 3. Run the compilation
 ```
-javac -cp .;..\lib\postgresql-42.7.2.jar edu/ucalgary/oop/Main.java'
+javac -cp .;..\lib\postgresql-42.7.2.jar edu/ucalgary/oop/Main.java
 ```
 - 4. Run the main file
 ```

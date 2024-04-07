@@ -37,6 +37,9 @@ public class Schedule {
     private HashMap<Integer, Integer> timeAvailability = new HashMap<>(24);
     private HashMap<Integer, Integer> maxTimeAvailability = new HashMap<>(24);
 
+    //The entire schedule formatted as a string to then be displayed via GUI and written to the .txt file
+    private String scheduleString;
+
     /**
      * Initializes the Schedule by connecting to the database with provided credentials and loading animal, task, and treatment data.
      * Sets up default tasks for cage cleaning and special porcupine cage cleaning, and initializes the daily schedule with time availability.
@@ -90,6 +93,7 @@ public class Schedule {
                 }
             }
         }
+        createScheduleString();
         createTextSchedule();
         createGUIschedule();
     }
@@ -334,27 +338,28 @@ public class Schedule {
 
     public void createTextSchedule() {
         String fileName = "Schedule.txt";
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName))) {
-            for (Map.Entry<Integer, ArrayList<Item>> entry : schedule.entrySet()) {
-                
-                int hour = entry.getKey();
-                bufferedWriter.write("Hour: " + hour);
-                bufferedWriter.newLine();
-                
-                ArrayList<Item> items = entry.getValue();
-                if (items != null && !items.isEmpty()) {
-                    for (Item item : items) {
-                        bufferedWriter.write(formatItem(item, 30, 25));
-                        bufferedWriter.newLine();
-                    }
-                } else {
-                    bufferedWriter.write("Empty");
-                    bufferedWriter.newLine();
-                }
-                bufferedWriter.newLine();
-            }
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
+        try {
+
+            fileWriter = new FileWriter(fileName);
+            bufferedWriter = new BufferedWriter(fileWriter);
+
+            bufferedWriter.write(this.scheduleString);
         } catch (IOException e) {
             System.err.println("Error writing to Schedule.txt: " + e.getMessage());
+        }finally{
+            try{
+                if(bufferedWriter != null){
+                    bufferedWriter.close();
+                }
+                if(fileWriter != null){
+                    fileWriter.close();
+                }
+                
+            }catch(IOException e){
+                System.err.println("Excetption occured when trying to close schedule.txt");
+            }
         }
     }
 
@@ -364,6 +369,23 @@ public class Schedule {
      */
 
     public void createGUIschedule() {
+        
+       
+        JTextArea textArea = new JTextArea(scheduleString);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        scrollPane.setPreferredSize(new Dimension(500, 500));
+        JOptionPane.showMessageDialog(null, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);   
+    }
+
+    /*
+     * @param none.
+     * @return a formatted string that represents the schedule
+     */
+    public void createScheduleString(){
         StringBuilder scheduleBuilder = new StringBuilder();
     
         for (Map.Entry<Integer, ArrayList<Item>> entry : schedule.entrySet()) {
@@ -380,14 +402,6 @@ public class Schedule {
             }
             scheduleBuilder.append("\n");
         }
-       
-        JTextArea textArea = new JTextArea(scheduleBuilder.toString());
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        textArea.setEditable(false);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        textArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
-        scrollPane.setPreferredSize(new Dimension(500, 500));
-        JOptionPane.showMessageDialog(null, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);   
+        this.scheduleString = scheduleBuilder.toString();
     }
 }
