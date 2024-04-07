@@ -1,4 +1,4 @@
-package edu.ucalgary.oop;
+package edu.ucalgary.oop.Tests;
 
 import edu.ucalgary.oop.Animals.Porcupine;
 import edu.ucalgary.oop.Schedule.Item;

@@ -1,4 +1,4 @@
-package edu.ucalgary.oop;
+package edu.ucalgary.oop.Tests;
 
 import edu.ucalgary.oop.Medical.Treatments;
 import org.junit.Test;

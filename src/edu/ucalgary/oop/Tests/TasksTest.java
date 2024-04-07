@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 
- package edu.ucalgary.oop;
+ package edu.ucalgary.oop.Tests;
 
  import edu.ucalgary.oop.Medical.Tasks;
  import org.junit.Test;

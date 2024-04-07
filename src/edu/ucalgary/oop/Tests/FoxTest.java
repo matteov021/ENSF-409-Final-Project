@@ -1,4 +1,4 @@
-package edu.ucalgary.oop;
+package edu.ucalgary.oop.Tests;
 
 import edu.ucalgary.oop.Animals.Fox;
 import edu.ucalgary.oop.Schedule.Item;

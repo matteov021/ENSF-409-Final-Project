@@ -8,7 +8,7 @@
  */
 
 
-package edu.ucalgary.oop;
+package edu.ucalgary.oop.Tests;
 
 import edu.ucalgary.oop.Schedule.Item;
 import edu.ucalgary.oop.Animals.*;

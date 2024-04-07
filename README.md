@@ -51,11 +51,11 @@ java -cp .;..\lib\postgresql-42.7.2.jar edu.ucalgary.oop.Main
 - Add the dependencies listed in [dependencies](#Dependencies) to the `lib` folder
 - Run the compliation
 ```
-javac -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar edu/ucalgary/oop/ExampleTest.java
+javac -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar edu/ucalgary/oop/Tests/ExampleTest.java
 ```
 - Run the test file
 ```
-java -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar org.junit.runner.JUnitCore edu.ucalgary.oop.ExampleTest
+java -cp .;..\lib\junit-4.13.2.jar;..\lib\hamcrest-core-1.3.jar org.junit.runner.JUnitCore edu.ucalgary.oop.Tests.ExampleTest
 ```
 
 Replace 'ExampleTest' with the test file you would like to run.
