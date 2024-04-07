@@ -73,40 +73,49 @@ package Schedule {
     -createAnimalBySpecies(id: int, nickName: String, species: String): Animal
   }
   class Item {
-    -animalID: int
-    -taskID: int
-    -startHour: int
-    -maxWindow: int
-    -duration: int
-    -treatmentID: int
-    +Item(animalID: int, taskID: int, startHour: int, maxWindow: int, duration: int)
-    +Item(animalID: int, taskID: int, startHour: int, maxWindow: int, duration: int, treatmentID: int)
-    +setStartHour(startHour: int): void
-    +getAnimalID(): int
-    +getTaskID(): int
-    +getStartHour(): int
-    +getMaxWindow(): int
-    +getDuration(): int
-    +getTreatmentID(): int
+      - animalID: int
+      - taskID: int
+      - startHour: int
+      - maxWindow: int
+      - duration: int
+      - treatmentID: int
+      - needsVolunteer: boolean
+      + Item(animalID: int, taskID: int, startHour: int, maxWindow: int, duration: int)
+      + Item(animalID: int, taskID: int, startHour: int, maxWindow: int, duration: int, treatmentID: int)
+      + setStartHour(startHour: int): void
+      + setNeedsVolunteer(needsVolunteer: boolean): void
+      + getAnimalID(): int
+      + getTaskID(): int
+      + getStartHour(): int
+      + getMaxWindow(): int
+      + getDuration(): int
+      + getTreatmentID(): int
+      + getNeedsVolunteer(): boolean
   }
-  class Schedule extends JFrame {
-    -importData: ImportData
-    -animalHashMap: HashMap<Integer, Animal>
-    -tasksHashMap: HashMap<Integer, Tasks>
-    -treatmentsArrayList: ArrayList<Treatments>
-    -schedule: HashMap<Integer, ArrayList<Item>>
-    -foodPrepFeeding: HashMap<Integer, HashMap<String, Boolean>>
-    -timeAvailability: HashMap<Integer, Integer>
-    -maxTimeAvailability: HashMap<Integer, Integer>
-    +Schedule(username: String, password: String)
-    +createSchedule(): void
-    +addItem(item: Item): boolean
-    +addMedical(): ArrayList<Item>
-    +addCage(): ArrayList<Item>
-    +addFeeding(): ArrayList<Item>
-    +formatItem(item: Item): String
-    +createTextSchedule(): void
-    +createGUIschedule(): void
+  class Schedule {
+      - importData: ImportData
+      - animalHashMap: HashMap<Integer, Animal>
+      - tasksHashMap: HashMap<Integer, Tasks>
+      - treatmentsArrayList: ArrayList<Treatments>
+      - schedule: HashMap<Integer, ArrayList<Item>>
+      - foodPrepFeeding: HashMap<Integer, HashMap<String, Boolean>>
+      - timeAvailability: HashMap<Integer, Integer>
+      - maxTimeAvailability: HashMap<Integer, Integer>
+      + Schedule(username: String, password: String)
+      + createSchedule(): void
+      + findHourForVolunteer(item: Item): int
+      + handleVolunteerRequired(volunteerHour: int, item: Item, options: String[]): void
+      + adjustTimeAvailability(hour: int): void
+      + promptReschedule(item: Item): void
+      + getTimeAvailabilityForRescheduling(): String
+      + addItem(item: Item): boolean
+      + adjustDurationForAnimalPrep(hour: int, animalID: int): int
+      + addMedical(): ArrayList<Item>
+      + addCage(): ArrayList<Item>
+      + addFeeding(): ArrayList<Item>
+      + formatItem(item: Item, nickNameWidth: int, descriptionWidth: int): String
+      + createTextSchedule(): void
+      + createGUIschedule(): void
   }
   ImportData ..> Schedule : imports >
   Schedule "1" -- "*" Item : contains >
@@ -115,30 +124,20 @@ package Schedule {
   Animal -- Item : feeding >
 }
 
-@enduml
-'note right of Beaver::feeding
-'  Specific parameters for Beaver:
-'  taskID=0, startHour=8, maxWindow=3, duration=5
-'end note
-'
-'note right of Coyote::feeding
-'  Specific parameters for Coyote:
-'  taskID=0, startHour=19, maxWindow=3, duration=5
-'end note
-'
-'note right of Fox::feeding
-'  Specific parameters for Fox:
-'  taskID=0, startHour=0, maxWindow=3, duration=5
-'end note
-'
-'note right of Porcupine::feeding
-'  Specific parameters for Porcupine:
-'  taskID=0, startHour=19, maxWindow=3, duration=5
-'end note
-'
-'note right of Raccoon::feeding
-'  Specific parameters for Raccoon:
-'  taskID=0, startHour=0, maxWindow=3, duration=5
-'end note
+package GUI{
+    class GUI {
+        - username: String
+        - password: String
+        - instruction: String
+        - ERRORMESSAGE: String
+        - passLabel: JLabel
+        - userLabel: JLabel
+        + setGUIUsername(): void
+        + setGUIPassword(): void
+        + getUsername(): String
+        + getPassword(): String
+        + errorMessage(): void
+    }
+}
 
 @enduml
