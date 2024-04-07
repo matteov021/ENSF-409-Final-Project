@@ -12,7 +12,7 @@ Provides : Tasks based on the animals & GUI to allow user to create a schedule t
 
 ## Members
 
-* Marcus Maundy Gee (DELUSIONAL DRX FAN)
+* Marcus Gee
 * Matteo Valente
 * Findlay Dunn-Wolbaum
 * Omar Ahmed
