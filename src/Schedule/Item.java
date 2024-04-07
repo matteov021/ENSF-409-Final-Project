@@ -25,6 +25,7 @@ public class Item {
     private int maxWindow;
     private int duration;
     private int treatmentID;
+    private boolean needsVolunteer = false;
 
     /**
      * Constructs a new Item without specifying a treatment ID. This constructor is suitable
@@ -88,6 +89,15 @@ public class Item {
         this.startHour = startHour;
     }
 
+    /**
+     * Updates volunteer flag if a schedule hour conflict
+     * User must choose to select a volunteer for the conflict
+     * @param needsVolunteer
+     */
+    public void setNeedsVolunteer(boolean needsVolunteer) { 
+        this.needsVolunteer = needsVolunteer;
+    }
+
     // Getters
     public int getAnimalID() { return animalID; }
     public int getTaskID() { return taskID; }
@@ -95,4 +105,5 @@ public class Item {
     public int getMaxWindow() { return maxWindow; }
     public int getDuration() { return duration; }
     public int getTreatmentID() { return treatmentID; }
+    public boolean getNeedsVolunteer() { return needsVolunteer; }
 }

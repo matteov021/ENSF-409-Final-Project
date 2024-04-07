@@ -3,21 +3,21 @@
  * @author Marcus Gee
  * @author Findlay Dunn-Wolbaum
  * @author Omar Ahmed
- * @version 2.9.0
+ * @version 2.10.0
  * @since 1.7.0
  */
 
 package Schedule;
-import java.sql.*;
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
+
 import java.awt.*;
 import Medical.*;
 import Animals.*;
-import Schedule.*;
 
-public class Schedule extends JFrame {
+
+public class Schedule {
     
     // ImportData Object For Storing The Data Compiled From The Database
     // Copies Of The HashMaps / ArrayList In The ImportData Class
@@ -53,7 +53,7 @@ public class Schedule extends JFrame {
             tasksHashMap = importData.importTasksTable();
             treatmentsArrayList = importData.importTreatmentsTable();
         } catch (Exception e) {
-            System.out.println(e);
+            throw new IllegalArgumentException();
         }
     
         tasksHashMap.put(-2, new Tasks(-2, "Cage Cleaning", 5, 24));
@@ -64,9 +64,9 @@ public class Schedule extends JFrame {
             maxTimeAvailability.put(i, 60);
             schedule.put(i, null);
         } 
-        createSchedule();
+       
     }
-
+ 
     /**
      * Schedules all tasks by prioritizing their flexibility and handles unscheduled tasks by either adding a volunteer
      * or prompting for rescheduling. Finally, generates the text schedule.
@@ -78,7 +78,7 @@ public class Schedule extends JFrame {
         items.addAll(addMedical());
         items.addAll(addCage());
         items.addAll(addFeeding());
-        items.sort(Comparator.comparingInt(Item::getMaxWindow));
+        // items.sort(Comparator.comparingInt(Item::getMaxWindow));
         
         for (Item item : items) {
             if (!addItem(item)) {
@@ -109,30 +109,6 @@ public class Schedule extends JFrame {
         return -1; // No hour available for volunteer
     }
 
-    // /**
-    //  * Requests user input for rescheduling the task to a different time within the available volunteering hours.
-    //  * 
-    //  * @param volunteerHour The hour during which a volunteer is needed for the task.
-    //  * @return The rescheduled hour chosen by the user, or -1 if input is invalid or the chosen time is unavailable.
-    //  */
-
-    // private int requestRescheduleTime(int volunteerHour) {
-        
-    //     // Logic to prompt user for reschedule time
-    //     // Show Available Times (timeAvailability Hashmap (Keys, IDK How GUI))
-    //     // This part would involve interaction with GUI elements
-    //     // For now, you can return a default value or handle it as needed
-        
-    //     try {
-    //         int userinput = Integer.parseInt(userChoice);
-    //         if (timeAvailability.containsKey(userinput) && timeAvailability.get(userinput) == 60) {
-    //             return userinput;
-    //         }
-    //     } catch (NumberFormatException ignored) {
-    //     }
-    //     return -1;
-    // }
-
     /**
      * Handles the scenario where a backup volunteer is required for a specific hour.
      * It displays a dialog asking whether to add a volunteer for the hour. If confirmed,
@@ -144,12 +120,13 @@ public class Schedule extends JFrame {
      */
 
     private void handleVolunteerRequired(int volunteerHour, Item item, String[] options) {
-        int selectedValue = JOptionPane.showOptionDialog(rootPane,
+        int selectedValue = JOptionPane.showOptionDialog(null,
                 "A backup volunteer is required for " + volunteerHour, "Warning",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, options, options[0]);
         if (selectedValue == 1) {
             adjustTimeAvailability(volunteerHour);
+            item.setNeedsVolunteer(true);
             addItem(item);
         } else {
             promptReschedule(item);
@@ -178,7 +155,7 @@ public class Schedule extends JFrame {
 
     private void promptReschedule(Item item) {
         String timesAvailable = getTimeAvailabilityForRescheduling();
-        String userInput = JOptionPane.showInputDialog(rootPane,
+        String userInput = JOptionPane.showInputDialog(null,
                 "Please reschedule the task to a different time: " + timesAvailable);
         try {
             int newStartHour = Integer.parseInt(userInput);
@@ -187,11 +164,11 @@ public class Schedule extends JFrame {
                 addItem(item);
                 importData.updateTreatmentStartHour(item.getTreatmentID(), newStartHour);
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Invalid input, try again.");
+                JOptionPane.showMessageDialog(null, "Invalid input, try again.");
                 promptReschedule(item); // Recursive call to prompt again
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "Invalid input, try again.");
+            JOptionPane.showMessageDialog(null, "Invalid input, try again.");
             promptReschedule(item); // Recursive call to prompt again
         }
     }
@@ -340,12 +317,13 @@ public class Schedule extends JFrame {
      * @return A formatted string representing the item's details.
      */
 
-    public String formatItem(Item item) {
+    public String formatItem(Item item, int nickNameWidth, int descriptionWidth) {
         String nickName = animalHashMap.get(item.getAnimalID()).getNickName();
+        if (item.getNeedsVolunteer()) {
+            nickName += " (+ Volunteer)";
+        }
         String description = (item.getTaskID() == 0) ? "Feeding" : tasksHashMap.get(item.getTaskID()).getDescription();
         int duration = item.getDuration();
-        final int nickNameWidth = 30;
-        final int descriptionWidth = 25;
         return String.format("%-" + nickNameWidth + "s%-"+ descriptionWidth + "s%5d mins", nickName, description, duration);
     }
 
@@ -366,7 +344,7 @@ public class Schedule extends JFrame {
                 ArrayList<Item> items = entry.getValue();
                 if (items != null && !items.isEmpty()) {
                     for (Item item : items) {
-                        bufferedWriter.write(formatItem(item));
+                        bufferedWriter.write(formatItem(item, 30, 25));
                         bufferedWriter.newLine();
                     }
                 } else {
@@ -395,20 +373,21 @@ public class Schedule extends JFrame {
             ArrayList<Item> items = entry.getValue();
             if (items != null && !items.isEmpty()) {
                 for (Item item : items) {
-                    scheduleBuilder.append(formatItem(item)).append("\n");
+                    scheduleBuilder.append(formatItem(item, 30, 25)).append("\n");
                 }
             } else {
                 scheduleBuilder.append("Empty\n");
             }
             scheduleBuilder.append("\n");
         }
-        
+       
         JTextArea textArea = new JTextArea(scheduleBuilder.toString());
         JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         scrollPane.setPreferredSize(new Dimension(500, 500));
-        JOptionPane.showMessageDialog(rootPane, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);
+        JOptionPane.showMessageDialog(null, scrollPane, "Schedule", JOptionPane.DEFAULT_OPTION);   
     }
 }

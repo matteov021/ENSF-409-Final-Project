@@ -2,7 +2,6 @@ package Tests.Schedule;
 
 import Schedule.ImportData;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,6 +20,8 @@ import static org.junit.Assert.*;
  * @version 1.2.0
  * @since 1.0.0
  */
+
+@SuppressWarnings("unused")
 public class ImportDataTest {
 
     private final String username = "testUser";  // Replace with your test database username
@@ -35,7 +36,7 @@ public class ImportDataTest {
         boolean connectionResult;
         try {
             ImportData importData = new ImportData();
-            connectionResult = importData.establishDbConnection(username, password);
+            connectionResult = importData.establishDBConnection(username, password);
             assertTrue("Connection to the database should be successful", connectionResult);
         } catch (Exception e) {
             fail("Creating ImportData should not throw an exception");
@@ -51,7 +52,7 @@ public class ImportDataTest {
     public void testImportAnimalsTable() {
         try {
             ImportData importData = new ImportData();
-            importData.establishDbConnection(username, password);
+            importData.establishDBConnection(username, password);
             assertNotNull("Imported animals HashMap should not be null", importData.importAnimalsTable());
         } catch (SQLException e) {
             fail("Importing animals should not throw SQLException");
@@ -67,7 +68,7 @@ public class ImportDataTest {
     public void testImportTasksTable() {
         try {
             ImportData importData = new ImportData();
-            importData.establishDbConnection(username, password);
+            importData.establishDBConnection(username, password);
             assertNotNull("Imported tasks HashMap should not be null", importData.importTasksTable());
         } catch (SQLException e) {
             fail("Importing tasks should not throw SQLException");
@@ -83,7 +84,7 @@ public class ImportDataTest {
     public void testImportTreatmentsTable() {
         try {
             ImportData importData = new ImportData();
-            importData.establishDbConnection(username, password);
+            importData.establishDBConnection(username, password);
             assertNotNull("Imported treatments ArrayList should not be null", importData.importTreatmentsTable());
         } catch (SQLException e) {
             fail("Importing treatments should not throw SQLException");
@@ -99,10 +100,10 @@ public class ImportDataTest {
     public void testUpdateTreatmentStartHour() {
         try {
             ImportData importData = new ImportData();
-            importData.establishDbConnection(username, password);
+            importData.establishDBConnection(username, password);
             assertTrue("Update treatment start hour should return true", 
                 importData.updateTreatmentStartHour(1, 10));  // Assumes there is a treatment with ID 1
-        } catch (SQLException e) {
+        } catch (Exception e) {
             fail("Updating treatment start hour should not throw SQLException");
         }
     }
