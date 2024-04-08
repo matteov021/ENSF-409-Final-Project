@@ -1,7 +1,7 @@
 @startuml
 top to bottom direction
 
-package AnimalShelterSystem {
+package AnimalShelter {
   class Animal {
       -ID: int
       -NICKNAME: String
